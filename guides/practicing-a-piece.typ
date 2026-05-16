@@ -1,6 +1,6 @@
 #import "@preview/showybox:2.0.4": showybox
 #set page("us-letter", margin: 0.75in)
-#set text(font: "Pt Sans", size: 16pt)
+#set text(font: "PT Sans", size: 16pt)
 
 #show heading.where(level: 1): set text(fill: rgb("#960142"), size: 32pt)
 #show heading.where(level: 1): set align(center)

@@ -1,2 +1,2 @@
 #import "../templates/fingerboard.typ": fingerboard
-#fingerboard([Violin])
+#fingerboard([Viola])

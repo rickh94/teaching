@@ -90,7 +90,7 @@
     #showybox(
       title-style: (
         boxed-style: (
-          anchor: (y: horizon, x: center),
+          anchor: (y: horizon, x: left),
         ),
       ),
       title: [Neighbors],

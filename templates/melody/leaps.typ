@@ -1,6 +1,5 @@
 #import "@preview/showybox:2.0.4": showybox
 #import "@preview/scorify:0.3.0": melody
-#let instrument = [Viola]
 
 #let ins_melody(ins, in_notes, a_notes, ..args) = [
   #if ins == [Violin] [
@@ -12,7 +11,7 @@
   ]
 ]
 
-#let skips(instrument) = [
+#let leaps(instrument) = [
   #set page("us-letter", margin: 0.5in)
   #set text(font: "Young Serif", size: 16pt)
 
@@ -22,7 +21,7 @@
   #show heading.where(level: 2): set align(center)
 
 
-  = Pitch: Skips
+  = Pitch: Leaps
   == Writing #instrument Melodies
 
   #v(10pt)
@@ -45,10 +44,11 @@
         body-style: (
           color: navy,
         ),
-        title: [About Skips],
+        title: [About Leaps],
         pad(bottom: 4pt)[
-          + Skips move by two steps, skipping over a note
-          + Skips are also called "Thirds"
+          + Any distance bigger than a skip
+          + Used less than steps and skips
+          + Sound jumpy and disconnected
         ],
       )
     ]
@@ -57,64 +57,58 @@
   #v(10pt)
 
   #columns(2)[
-    === Skips going up
-    #ins_melody(instrument, "a4 c' | f' a'", "d4 e | b c'", staff-size: 8pt)
+    === Leaps going up
+    #ins_melody(instrument, "a4 f' | b e'", "d4 b | e a", staff-size: 8pt)
 
     #colbreak()
-    === Skips going down
-    #ins_melody(instrument, "b4 g | g' e'", "e4 d | c' b", staff-size: 8pt)
+    === Leaps going down
+    #ins_melody(instrument, "b4 f | g a,", "e4 b, | c e,", staff-size: 8pt)
   ]
 
 
 
   #align(center)[
     #set text(size: 18pt)
-    === Using Skips in Music
+    === Common Types of Leaps
   ]
-  #columns(2, gutter: 10pt)[
+  #columns(1, gutter: 10pt)[
     #showybox(
       title-style: (
         boxed-style: (
           anchor: (y: horizon, x: left),
         ),
       ),
-      title: [Up and Down],
+      title: [Octave (8ve)],
     )[
-      Skips move up and down more quickly than steps
+      #columns(2, gutter: 10pt)[
 
-      #ins_melody(instrument, "a c' e' c' a", "d f a f d", staff-size: 6pt)
+        - A leap of eight (8) notes is an octave.
+        - Both notes will have the same letter name
+        #colbreak()
 
-
+        #ins_melody(instrument, "a a' b b' e e'", "d d' e e' f, f", staff-size: 6pt)
+      ]
     ]
-
     #showybox(
+      spacing: 10pt,
       title-style: (
         boxed-style: (
           anchor: (y: horizon, x: left),
         ),
       ),
-      title: [Filling in],
-    )[
-      You can skip a note and then go back to it
-
-      #ins_melody(instrument, "a c' b | g e f", "d f e | c a, b,", staff-size: 6pt)
-
-    ]
-    #colbreak()
-    #showybox(
-      title-style: (
-        boxed-style: (
-          anchor: (y: horizon, x: left),
-        ),
-      ),
-      title: [Broken Thirds],
+      title: [Fifth (5th)],
       [
-        If you skip a note, then go back a step, then skip again and repeat
+        - Leaping five (5) notes.
+        - On the #instrument, this will be the same finger on the previous/next string
+        #ins_melody(
+          time: "C",
+          instrument,
+          "a a e' e' | f' f' e'2 | d'4 d' c' c' | b b a2",
+          "d d a a | b b a2 | g4 g f f | e e d2",
+          staff-size: 6pt,
+        )
 
-        #ins_melody(instrument, "a c' b d' c' e' d' f'", "d f e g f a g b")
-
-        You can do the same thing going down
-        #ins_melody(instrument, "f' d' e' c' d' b c' a", "b g a f g e f d")
+        Twinkle, Twinkle Little star begins with a fifth going up, then goes back down with a scale
 
       ],
     )
